@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import loggedIn from "../utils/login-manager";
+import {loggedIn} from "../utils/login-manager";
 
 function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // route to login page if not logged in.
-        if (!loggedIn) {
-            navigate("/login");
-        }
+        // // route to login page if not logged in.
+        // if (!loggedIn) {
+        //     navigate("/login");
+        // }
     })
 
     return (

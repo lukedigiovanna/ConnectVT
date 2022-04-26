@@ -15,7 +15,7 @@ main.login {
         border-radius: 6px;
         background-color: $tertiary-color;
         
-        @include media(phone, tablet) {
+        @include media(phone) {
             width: 100vw;
             height: 100vh;
         }
@@ -56,6 +56,11 @@ main.login {
                     @include button-style;
                 }
 
+            }
+
+            .error-message {
+                align-self: center;
+                color: $error-color;
             }
 
             .link-register {

@@ -4,9 +4,11 @@ import React from 'react';
 function Register() {
     
     return(
-        <div>
-            Register page
-        </div>
+        <main className="register">
+            <section className='content-form'>
+                
+            </section>
+        </main>
     )
 }
 

@@ -10,6 +10,7 @@
     "@types/node": "^16.11.29",
     "@types/react": "^18.0.7",
     "@types/react-dom": "^18.0.0",
+    "firebase": "^9.6.11",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-scripts": "5.0.1",
@@ -41,6 +42,7 @@
     ]
   },
   "devDependencies": {
+    "react-redux-firebase": "^3.11.0",
     "react-router-dom": "^6.3.0",
     "sass": "^1.50.1"
   }
