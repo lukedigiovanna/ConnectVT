@@ -1,0 +1,12 @@
+.link {
+    color: $link-color;
+    transition: color 0.2s ease-in-out;
+    border: none;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: $link-color-hover;
+}

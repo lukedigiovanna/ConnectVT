@@ -1,0 +1,66 @@
+main.login {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../../assets/images/login-background.jpg');
+    background-size: cover;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    section.content-form {
+        width: 380px;
+        height: 520px;
+        border-radius: 6px;
+        background-color: $tertiary-color;
+        
+        @include media(phone, tablet) {
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        div.inner-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h1 {
+                font-size: 1.75em;
+            }
+
+            form {
+                width: 72%;
+
+                .form-group {
+                    margin-bottom: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    input {
+                        font-family: 'Work Sans', sans-serif;
+                        border: none;
+                        background-color: $tertiary-color;
+                        border-bottom: 3px solid lightgray;
+                        padding: 8px;
+                        font-size: 1rem;
+                        margin-left: 5px;
+                    }
+    
+                    label {
+                        font-size: 1.1em;
+                        margin-bottom: 4px;
+                    }
+                }
+
+                button {
+                    @include button-style;
+                }
+
+            }
+
+            .link-register {
+                justify-self: flex-end;
+            }
+        }
+    }
+}
