@@ -3,8 +3,8 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { ReactReduxFirebaseConfig } from 'react-redux-firebase';
+
 const firebaseConfig = {
   apiKey: "AIzaSyCKfiTF6G-_i08nlqC6O0NsFEl2496ZPRQ",
   authDomain: "connectvt-4821a.firebaseapp.com",
@@ -17,5 +17,11 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
+
+export const rrfConfig: Partial<ReactReduxFirebaseConfig> = {
+	userProfile: "users",
+	useFirestoreForProfile: true,
+	attachAuthIsReady: true
+}
 
 export default firebase;
