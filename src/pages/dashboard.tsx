@@ -12,9 +12,11 @@ function Dashboard() {
                 <p>
                     How did you get here?
                 </p>
-                {
-                    store.getState().
-                }
+                <ul>
+                    {
+                        store.getState().todos.map((todo: string) => <li>{todo}</li>)
+                    }
+                </ul>
                 <input>
                 
                 </input>
