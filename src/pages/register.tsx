@@ -2,15 +2,25 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import firebase from '../constants/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import Paths from '../constants/paths';
 
 function Register() {
     const navigate = useNavigate();
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [passwordConfirm, setPasswordConfirm] = React.useState('');
     const [error, setError] = React.useState('');
 
     const signup = async () => {
+        if (username.length === 0 || email.length === 0 || password.length === 0) {
+            setError('Please enter all fields.');
+            return;
+        }
+        if (password !== passwordConfirm) {
+            setError('Passwords do not match.');
+            return;
+        }
         createUserWithEmailAndPassword(firebase.auth(), email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -20,13 +30,12 @@ function Register() {
             const errorCode = error.code;
             const errorMessage = error.message;
             setError(errorMessage);
-        });
-
-        
+        });   
     }
 
     return(
         <main className="register">
+            
             <section className='content-form'>
                 <div className='inner-content'>
                     <h1>
@@ -76,7 +85,7 @@ function Register() {
                                 id='password' 
                                 className='form-control'
                                 placeholder="confirm password" 
-                                onChange={(e) => {}}/>
+                                onChange={(e) => {setPasswordConfirm(e.target.value);}}/>
                         </div>
 
                         <div className="form-group">
@@ -92,6 +101,12 @@ function Register() {
                     <p className='error-message'>
                         {error}
                     </p>
+
+                    <div className='link-register'>
+                        <p>
+                            Already have an account? <button className='link' onClick={() => { navigate(Paths.login) }}>Sign In</button>
+                        </p>
+                    </div>
                 </div>
             </section>
         </main>

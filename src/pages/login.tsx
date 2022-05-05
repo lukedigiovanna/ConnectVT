@@ -70,8 +70,6 @@ function Login() {
                     </div>
                 </div>
             </section>
-
-            <figure className='background-image'>  </figure>
         </main>
     );
 }

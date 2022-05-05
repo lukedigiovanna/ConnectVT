@@ -1,27 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-import {loggedIn} from "../utils/login-manager";
-
-import '../constants/firebase';
-import { useSelector } from 'react-redux';
-import { useFirestoreConnect } from 'react-redux-firebase';
+import { store } from '../store';
 
 function Dashboard() {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        // // route to login page if not logged in.
-        // if (!loggedIn) {
-        //     navigate("/login");
-        // }
-    })
-
-    useFirestoreConnect([
-        { collection: 'test' }
-    ])
-
-    const users = useSelector((state: any) => state.firestore.ordered.test);
+    // const navigate = useNavigate();
 
     return (
         <main className="dashboard">
@@ -30,13 +12,26 @@ function Dashboard() {
                 <p>
                     How did you get here?
                 </p>
-                <p>
-                    {users}
-                </p>
+                {
+                    store.getState().
+                }
+                <input>
+                
+                </input>
+                <button 
+                onClick={() => {
+                    store.dispatch({
+                        type: 'ADD_TODO',
+                        todo: "Take out the trash"
+                    })
+                    console.log(store.getState());
+                }}
+                >
+                    Add Todo
+                </button>
             </section>
         </main>
-    );
-
+    )
 }
 
 export default Dashboard;

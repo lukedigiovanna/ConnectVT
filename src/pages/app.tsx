@@ -14,15 +14,15 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 
 function App() {
   return (
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
+    // <Provider store={store}>
+    //   <ReactReduxFirebaseProvider {...rrfProps}>
         <Routes>
           <Route path={Paths.root} element={<Dashboard />} />
           <Route path={Paths.login} element={ <Login /> } />
           <Route path={Paths.register} element={ <Register /> } />
         </Routes>
-      </ReactReduxFirebaseProvider>
-    </Provider>
+    //   </ReactReduxFirebaseProvider>
+    // </Provider>
   );
 }
 

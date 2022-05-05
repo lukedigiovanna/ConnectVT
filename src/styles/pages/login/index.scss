@@ -18,6 +18,7 @@ main.login {
         @include media(phone) {
             width: 100vw;
             height: 100vh;
+            border-radius: 0px;
         }
         
         div.inner-content {
@@ -56,15 +57,15 @@ main.login {
                     @include button-style;
                 }
 
+                button:hover {
+                    @include button-style-hover;
+                }
+
             }
 
             .error-message {
                 align-self: center;
                 color: $error-color;
-            }
-
-            .link-register {
-                justify-self: flex-end;
             }
         }
     }
