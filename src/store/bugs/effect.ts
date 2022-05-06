@@ -16,22 +16,24 @@ export const fetchBugs = (): Effect => async (dispatch, getState) => {
     const profile = state.firebase.profile;
     console.log(profile);
 
-    dispatch(fetchBugsSuccessAction(
-    [
-        {
-            id: 1,
-            description: "Segmentation fault caused by line 63",
-            isResolved: false
-        },
-        {
-            id: 2,
-            description: "Display not centered on dashboard",
-            isResolved: false 
-        },
-        {
-            id: 3,
-            description: "API call to fetch posts results in 404 error",
-            isResolved: true 
-        }
-    ]));
+    setTimeout(() => {
+        dispatch(fetchBugsSuccessAction(
+        [
+            {
+                id: 1,
+                description: "Segmentation fault caused by line 63",
+                isResolved: false
+            },
+            {
+                id: 2,
+                description: "Display not centered on dashboard",
+                isResolved: false 
+            },
+            {
+                id: 3,
+                description: "API call to fetch posts results in 404 error",
+                isResolved: true 
+            }
+        ]));
+    }, 500)
 }
