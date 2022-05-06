@@ -1,9 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { StoreState } from '../store';
+import { Bug } from "../models/bug";
 
 function Dashboard() {
     // const navigate = useNavigate();)
+    const bugs = useSelector((state: StoreState) => state.bugs);
+    const dispatch = useDispatch();
 
     return (
         <main className="dashboard">
@@ -14,7 +18,7 @@ function Dashboard() {
                 </p>
                 <ul>
                     {
-                        store.getState().todos.map((todo: string) => <li>{todo}</li>)
+                        bugs.bugs.map((bug: Bug) => <li>{bug.description}</li>)
                     }
                 </ul>
                 <input>
@@ -22,11 +26,11 @@ function Dashboard() {
                 </input>
                 <button 
                 onClick={() => {
-                    store.dispatch({
+                    dispatch({
                         type: 'ADD_TODO',
                         todo: "Take out the trash"
                     })
-                    console.log(store.getState());
+                    console.log(todos);
                 }}
                 >
                     Add Todo
