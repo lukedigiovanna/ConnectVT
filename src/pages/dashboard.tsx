@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { store } from '../store';
+import { useDispatch, useSelector } from "react-redux";
 
 function Dashboard() {
-    // const navigate = useNavigate();
+    // const navigate = useNavigate();)
 
     return (
         <main className="dashboard">
