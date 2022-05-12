@@ -9,6 +9,15 @@ class APIService {
 	}
 
 	private async getHeaders(): Promise<AxiosRequestHeaders> {
+		// validate current session
+		const token = await firebase.auth().currentUser?.getIdToken();
+		console.log(token);
+		if (token) {
+			return {
+				...this.defaultHeaders,
+				Authorization: `Bearer ${token}`
+			}
+		}
 		return this.defaultHeaders;
 	}
 

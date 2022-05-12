@@ -6,8 +6,20 @@ import { Bug } from "../models/bug";
 import { Comment } from '../models/comment';
 import { fetchBugs } from "../store/bugs/effect";
 import { fetchComments } from "../store/comments/effect";
+import firebase from '../constants/firebase';
+import Paths from '../constants/paths';
 
 function Dashboard() {
+    const navigate = useNavigate();
+
+    // reroute to login page if there is no currently authenticated user
+    useEffect(() => {
+        // check validation
+        if (!firebase.auth().currentUser?.getIdToken()) {
+            navigate(Paths.login);
+        }
+    })
+
     // const navigate = useNavigate();)
     const bugs = useSelector((state: StoreState) => state.bugs);
     const state = useSelector((state: StoreState) => state);
