@@ -6,22 +6,27 @@ import { bugsInitialState, bugsReducer } from './bugs/reducer';
 import { User } from '../models/user';
 import firebase, { rrfConfig } from '../constants/firebase';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { CommentsState } from './comments/types';
+import { commentsInitialState, commentsReducer } from './comments/reducer';
 
 // // structure of the store
 export interface StoreState {
     firebase: FirebaseReducer.Reducer<User>,
     firestore: FirestoreReducer.Reducer,
-    bugs: BugsState
+    bugs: BugsState,
+    comments: CommentsState
 };
 
 const initialState = {
-    bugs: bugsInitialState
+    bugs: bugsInitialState,
+    comments: commentsInitialState
 }
 
 const rootReducer = combineReducers<StoreState>({
     bugs: bugsReducer,
     firebase: firebaseReducer,
-    firestore: firestoreReducer
+    firestore: firestoreReducer,
+    comments: commentsReducer
 });
 
 

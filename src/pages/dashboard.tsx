@@ -3,15 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreState } from '../store';
 import { Bug } from "../models/bug";
+import { Comment } from '../models/comment';
 import { fetchBugs } from "../store/bugs/effect";
+import { fetchComments } from "../store/comments/effect";
 
 function Dashboard() {
     // const navigate = useNavigate();)
     const bugs = useSelector((state: StoreState) => state.bugs);
     const state = useSelector((state: StoreState) => state);
+    const comments = useSelector((state: StoreState) => state.comments);
     const dispatch = useDispatch();
     useEffect(() => {
         fetchBugs()(dispatch, () => state, undefined);
+        fetchComments()(dispatch, () => state, undefined);
     }, []);
 
     const [numbers, setNumbers] = React.useState([1]);
@@ -26,6 +30,12 @@ function Dashboard() {
                         bugs.bugs.map((bug: Bug) => <li key={bug.id}>{bug.description}</li>)
                     }
                 </ul>
+
+                {
+                    comments.isLoading ? <p>Loading...</p> :
+                    comments.comments.map((comment: Comment) => <p key={comment.id}>{comment.body}</p>)
+                }
+
                 <input>
                 
                 </input>
